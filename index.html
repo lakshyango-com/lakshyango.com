@@ -34,6 +34,7 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -723,7 +724,7 @@
 
           <div class="row mt-5 justify-content-center">
             <div class="col-lg-10">
-              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <form action="http://127.0.0.1:8000/homeLakshya/" method="post" role="form" class="" id = "ContactForm">
                 <div class="row">
                   <div class="col-md-6 form-group">
                     <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -752,6 +753,30 @@
         </div>
       </section>
   </main>
+  
+<script>
+
+
+  $("#ContactForm").submit(function(e) {
+
+    e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    var form = $(this);
+    var url = form.attr('action');
+    
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: form.serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+               alert('message sent successfully'); // show response from the php script.
+           }
+         });
+
+    
+});
+</script>
   <!-- End Contact Section -->
 
   <!-- End #main -->
@@ -795,17 +820,36 @@
             </ul>
           </div> -->
 
-          <!-- <div class="col-lg-4 col-md-6 footer-newsletter">
+          <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+            <p>Please enter your email to subscribe and follow our page.</p>
+            <form action="http://127.0.0.1:8000/homenews/" method="post" id = "SubscribeForm">
+              <input type="email" name="email"><button type="submit">Subscribe</button>
             </form>
-          </div> -->
+          </div>
 
         </div>
       </div>
     </div>
+     
+    <script>
+       $("#SubscribeForm").submit(function(e) {
+
+e.preventDefault(); // avoid to execute the actual submit of the form.
+
+var form = $(this);
+var url = form.attr('action');
+
+$.ajax({
+       type: "POST",
+       url: url,
+       data: form.serialize(), // serializes the form's elements.
+       success: function(data)
+       {
+           alert('Subscribed successfully'); // show response from the php script.
+       }
+     });
+    </script>
 
     <div class="container d-md-flex py-4">
 
