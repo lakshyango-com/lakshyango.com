@@ -727,7 +727,7 @@
             <form action="https://contriveapi.herokuapp.com/ArticleLakshya/" method="post" role="form" class=""
               id="ContactForm">
               <div class="row">
-                <div class="col-md-6 form-group">
+                <div class="col-md-6 form-group"> 
                   <input type="text" name="fullname" class="form-control" id="fullname" placeholder="Your Name" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
@@ -770,7 +770,8 @@
         url: url,
         data: form.serialize(), // serializes the form's elements.
         success: function (data) {
-          alert('message sent successfully'); // show response from the php script.
+          alert('message sent successfully');
+          document.getElementById("ContactForm"). reset() // show response from the php script.
         }
       });
 
@@ -851,9 +852,11 @@
           url: web_url,
           data: form.serialize(), // serializes the form's elements.
           success: function (data) {
-            alert('Subscribed successfully'); // show response from the php script.
+            alert('Subscribed successfully');
+            document.getElementById("SubscribeForm"). reset() // show response from the php script.
           }
         });
+      });
     </script>
 
     <div class="container d-md-flex py-4">
